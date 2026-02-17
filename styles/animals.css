@@ -88,16 +88,17 @@ footer{
 	Special (added in class)
 ********************************/
 
-.main{
-	/* always set  mazimum width for your site */
-	width: 960px;
-	margin: 0 auto; 
-	background-image: url(../images/corkback.jpg);
-	/* by default, a background image will repeat */
-	border: 25px solid #542401;
-	padding: 25px 45px 45px; 
-	/* three calues means top, left and right, bottom */
-	/* to account or the extra margin and padding, we can use box-sizing */
-	box-sizing: border-box;
-	/* bord bocx means tye padding and border wil be calculated  within the width (so long as you have a set width) */
+main{
+    /* always set a maximum width to yourt site */
+    width: 960px;
+    margin: 0 auto;
+    background-image: url('../images/corkback.jpg');
+    /* by default, a background image will repeat */
+    border: 25px solid #452401;
+    border-top: 0px; 
+    border-bottom-left-radius: 25px;
+    padding: 24px 45px 45px; /* three values means top, left and right, bottom */
+    /* to account for the extra margin and padding, we can use box-sizing */
+    box-sizing: border-box;
+    /* border-box means the padding and border will be calculated withing the width (so long as you have a set width) */
 }
