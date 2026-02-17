@@ -42,6 +42,11 @@
     font-style: normal;
 }
 
+/*  use this if you want to apply a style to all css 
+*{
+	box-sizing: border-box;
+}
+*/
 /********************************
 			Custom Properties
 ********************************/
@@ -83,3 +88,15 @@ footer{
 	Special (added in class)
 ********************************/
 
+.main{
+	/* always set  mazimum width for your site */
+	width: 960px;
+	margin: 0 auto; 
+	background-image: url(../images/corkback.jpg);
+	/* by default, a background image will repeat */
+	border: 25px 45px 45px; 
+	/* three calues means top, left and right, bottom */
+	/* to account or the extra margin and padding, we can use box-sizing */
+	box-sizing: border-box;
+	/* bord bocx means tye padding and border wil be calculated  within the width (so long as you have a set width) */
+}
