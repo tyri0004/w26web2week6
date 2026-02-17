@@ -94,7 +94,8 @@ footer{
 	margin: 0 auto; 
 	background-image: url(../images/corkback.jpg);
 	/* by default, a background image will repeat */
-	border: 25px 45px 45px; 
+	border: 25px solid #542401;
+	padding: 25px 45px 45px; 
 	/* three calues means top, left and right, bottom */
 	/* to account or the extra margin and padding, we can use box-sizing */
 	box-sizing: border-box;
