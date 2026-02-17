@@ -50,7 +50,10 @@
 /********************************
 			Custom Properties
 ********************************/
-
+:root{
+	/* the root element of the document, this will make your custom properties availiable to the whole page (or global in scope) */
+	--mud-brown: #542401;
+}
 
 
 /********************************
@@ -94,11 +97,146 @@ main{
     margin: 0 auto;
     background-image: url('../images/corkback.jpg');
     /* by default, a background image will repeat */
-    border: 25px solid #452401;
+    border: 25px solid var(--mud-brown);
     border-top: 0px; 
     border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
     padding: 24px 45px 45px; /* three values means top, left and right, bottom */
     /* to account for the extra margin and padding, we can use box-sizing */
     box-sizing: border-box;
     /* border-box means the padding and border will be calculated withing the width (so long as you have a set width) */
+
+	/* box-shadow is a great effect for making something look 3-D */
+	/* in boxshadow, the properties are,
+	x offset
+	y offset
+	length (or size) 
+	colour */
+	box-shadow: 5px 5px 10px black, inset 3px 3px 7px black;
+	/* first box is outside shadow, inset is inside shadow */
+	/* this grid will allow us to position some images to the left and some to the right */
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+/***************************************
+			drop-down nav
+*************************************** */
+nav{
+	width:960px;
+	margin: 0 auto;
+	background-color: var(--mud-brown);
+	height: 55px;
+	font-size: 2em;
+	border-top-right-radius: 25px;
+	border-top-left-radius: 25px;
+	position: sticky;
+	top:0;
+	
+}
+/* the > selector means direct child, or only the ul that is a direct child of the nav (and not the ul inside of the ul */
+nav > ul{
+	display: flex;
+	justify-content: flex-end;
+	/* pushes the content to the right, or opposite the way the text starts */
+	padding-top: 15px;
+
+}
+ /* now only getthe list items that are direct cgilden fo the first ul */
+
+ nav > ul > li{
+	padding: 0 10px;
+	position: relative; 
+	/* this needs to be position relative so it will hold the absolutely positioned drop-down */
+
+ }
+ nav ul ul{
+	display: none;
+ }
+ /* make the hidden nav show up when you hover over top lsot items
+  */
+  nav ul li:hover ul{
+	display: block;
+	position: absolute;
+	background-color: var(--mud-brown);
+	padding: 15px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 3px 3px 7px black;
+  }
+  nav a{
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	/* removes underline */
+  }
+
+  /* verticle space for the links in the drop-down nav line-height is a percentage, so 1.5 = 150% times the size of the font */
+  nav ul li ul a{
+	line-height: 1.5;
+  }
+  p{
+	line-height: 1.4;
+	/*  a little bit of line height on blocks of text opens the text up makeing it look more friendly and easier to read */
+  }
+article{
+	background-color: white;
+	border: 1px solid #aaa ;
+	box-shadow: 2px 2px 4px rgb(50,50,50);
+	/* make drop shadow a dark grey  */
+}
+
+header article{
+	/* a bit of padding for the first article without a picture */
+	margin: 20px 0;
+	padding: 10px;
+}
+section article{
+	/* fixed widths for the articles with pictures */
+	width: 350px;
+	padding:  23px;
+	position: relative;
+}
+main section:nth-child(2n + 1){
+	justify-self: end;
+	margin-top: -100px;
+	margin-bottom: -100px;
+}
+
+section article::before{
+    content:' ';
+    /* by giving the before section content (a space) we are telling it to exist*/
+    width: 180px;
+    height: 50px;
+
+    /* you can use rgba ( a = alpha) to make something partially transparent */
+    background-color:rgba(222,222,222,0.6);
+    /* alpha is a value between 0 and 1, where 0 is completly trabsparent and 1 is completly opaque */
+    position: absolute;
+    left: 105px;
+    top: -15px;
+	transform: rotate(-5deg);
+}
+h1 span{
+	display: block; 
+	margin: 0 15px;
+}
+h1 span::first-letter{
+	font-family: 'Moo Lah Lah', cursive;
+	font-size: 1.3em;
+}
+h1{
+	display: flex; 
+	justify-content: center;
+}
+
+/* attribute selector */
+
+/* style all links that contain "wiki" */
+
+a[href*="wiki"]{
+	background-image: url(../images/wikipedia-icon.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	padding-left: 1.5em;
 }
